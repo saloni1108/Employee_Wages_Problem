@@ -1,23 +1,26 @@
 import random
 
+WAGE_PER_HOUR = 20
+HOUR_PER_DAY = 8
+PART_TIME_HOUR = 4
+TOTAL_HOURS = PART_TIME_HOUR + HOUR_PER_DAY
+
+def daily_wages(wage, hour):
+    total_wages = wage * hour
+    print(total_wages)
+
+def parttime_wage(wage, total):
+    total_wages = wage * total
+    print(total_wages)
+
 def check_attendance():
-    n = random.randint(0,1)
-    if n == 1:
+    attendance_chk = random.randint(0,2)
+    if attendance_chk == 1:
         print("Employee is present")
+        daily_wages(WAGE_PER_HOUR, HOUR_PER_DAY)
+    elif attendance_chk == 2:
+        print("employee is present")
+        parttime_wage(WAGE_PER_HOUR, TOTAL_HOURS)
     else:
         print("Employee is absent")
 check_attendance()
-
-wage_per_hour = 20
-hour_per_day = 8
-def daily_wages(w, h):
-    wages = w * h
-    print(wages)
-daily_wages(wage_per_hour, hour_per_day)
-
-part_time_hour = 4
-total_hour = hour_per_day + part_time_hour
-def parttime_wage(w, t):
-    wages = w * t
-    print(wages)
-parttime_wage(wage_per_hour, total_hour)
