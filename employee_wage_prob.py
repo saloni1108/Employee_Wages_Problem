@@ -1,8 +1,8 @@
 import random
 
 def check_attendance():
-    n = random.randint(0,1)
-    if n == 1:
+    attendance_chk = random.randint(0,1)
+    if attendance_chk == 1:
         print("Employee is present")
     else:
         print("Employee is absent")
