@@ -10,15 +10,15 @@ DAYS = 20
 
 def daily_wages(wage, hour):
     total_wages = wage * hour
-    print(total_wages)
+    print("Daily Wage is: ", total_wages)
 
 def parttime_wage(wage, total):
     total_wages = wage * total
-    print(total_wages)
+    print("Daily Wage is: ", total_wages)
 
 def monthly_wage(wage, hours, days):
     monthly_wages = wage * hours * days
-    print(monthly_wages)
+    print("Monthly Wage is: ", monthly_wages)
 
 def check_attendance():
     TOTAL_HOURS_WORKED = 0
@@ -27,18 +27,20 @@ def check_attendance():
         attendance_chk = random.randint(0,2)
         match attendance_chk:
             case 1:
-                print("Employee is present")
-                daily_wages(WAGE_PER_HOUR, HOUR_PER_DAY)
+                print("Employee is present for full time")
+                TOTAL_DAYS_WORKED += 1
                 TOTAL_HOURS_WORKED += HOUR_PER_DAY
-                TOTAL_DAYS_WORKED += 1
-                monthly_wage(WAGE_PER_HOUR, TOTAL_HOURS_WORKED, TOTAL_DAYS_WORKED)
+                daily_wages(WAGE_PER_HOUR, HOUR_PER_DAY)
             case 2:
-                print("Employee is present")
-                parttime_wage(WAGE_PER_HOUR, TOTAL_HOURS)
-                TOTAL_HOURS_WORKED += TOTAL_HOURS
+                print("Employee is present but for part-time")
                 TOTAL_DAYS_WORKED += 1
-                monthly_wage(WAGE_PER_HOUR, TOTAL_HOURS_WORKED, TOTAL_DAYS_WORKED)
+                TOTAL_HOURS_WORKED += PART_TIME_HOUR
+                daily_wages(WAGE_PER_HOUR, PART_TIME_HOUR)
             case _:
                 print("Employee is absent")
+                TOTAL_DAYS_WORKED += 1
+                TOTAL_HOURS_WORKED += 0
+    monthly_wage(WAGE_PER_HOUR, TOTAL_HOURS_WORKED, TOTAL_DAYS_WORKED)
 check_attendance()
+
  
