@@ -7,18 +7,23 @@ TOTAL_HOURS = PART_TIME_HOUR + HOUR_PER_DAY
 MAX_HOURS = 100
 MAX_DAYS = 20
 DAYS = 20
+DAILY_WAGE = []
+TOTAL_WAGE = []
 
 def daily_wages(wage, hour):
     total_wages = wage * hour
-    print(total_wages)
+    DAILY_WAGE.append(total_wages)
+    return total_wages
 
 def parttime_wage(wage, total):
     total_wages = wage * total
-    print(total_wages)
+    DAILY_WAGE.append(total_wages)
+    return total_wages
 
 def monthly_wage(wage, hours, days):
     monthly_wages = wage * hours * days
-    print(monthly_wages)
+    TOTAL_WAGE.append(monthly_wages)
+    return monthly_wages
 
 def check_attendance():
     TOTAL_HOURS_WORKED = 0
@@ -41,6 +46,8 @@ def check_attendance():
             case _:
                 print("Employee is absent")
     total_working_hours(TOTAL_HOURS_WORKED)
+    print("Daily Wage is: ", DAILY_WAGE)
+    print("Total Wage is: ", TOTAL_WAGE)
 def total_working_hours(hours):
     print("total hour: ", hours)
 
