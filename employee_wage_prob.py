@@ -23,7 +23,7 @@ def monthly_wage(wage, hours, days):
 def check_attendance():
     TOTAL_HOURS_WORKED = 0
     TOTAL_DAYS_WORKED = 0
-    while TOTAL_HOURS_WORKED < MAX_HOURS or TOTAL_DAYS_WORKED < MAX_DAYS:
+    while TOTAL_HOURS_WORKED < MAX_HOURS and TOTAL_DAYS_WORKED < MAX_DAYS:
         attendance_chk = random.randint(0,2)
         match attendance_chk:
             case 1:
